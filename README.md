@@ -19,7 +19,8 @@ Single video download:
 Multiple video download:
 `ytdl {url1} {url2} {url3}`
 
-## MP3 conversion integration
+
+## MP3 conversion integration:
 
 With this tool you can also download a YouTube video as an MP3 file. This requires the [`ffmpeg`](https://ffmpeg.org/download.html) program which you would need to [download](https://ffmpeg.org/download.html).
 
