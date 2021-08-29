@@ -2,8 +2,19 @@ import sys
 import subprocess
 from pytube import YouTube
 
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
 if len(sys.argv) == 1:
-    print("Usage: ytdl <link>")
+    print(f"{bcolors.HEADER}Usage: ytdl <link>")
     exit(1)
 
 audio = ""
@@ -19,9 +30,9 @@ if videos[0] == "mp3":
 for video in videos:
     try:
         yt = YouTube(video)
-        print("Trying to download: " + video)
+        print(f"{bcolors.OKGREEN}Trying to download: {bcolors.HEADER}{video}")
     except:
-        print("An error occurred.")
+        print(f"{bcolors.FAIL}An error occurred.")
         if len(videos) == 1:
             exit(1)
         continue
@@ -30,13 +41,13 @@ for video in videos:
     yt.download()
 
     if audio == "mp3":
-        print("Downloading audio: " + yt.title)
+        print(f"{bcolors.OKGREEN}Downloading audio: {bcolors.HEADER}{yt.title}")
         subprocess.run(
             ["ffmpeg", "-i", f"{yt.title}.mp4", f"{yt.title}.mp3"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         subprocess.run(
             ["rm", f"{yt.title}.mp4"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     else:
-        print("Downloading video: " + yt.title)
+        print(f"{bcolors.OKGREEN}Downloading video: {bcolors.HEADER}{yt.title}")
 
 
 if audio == "mp3":
