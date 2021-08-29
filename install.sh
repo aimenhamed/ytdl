@@ -6,5 +6,5 @@ dir=$(pwd)
 
 echo "ytdl () {
     python3 $dir/ytdl.py $1 $2 $3 $4 $5 $6 $7
-}" >> ~/.${rc}rc 
+}" >> $HOME/.${rc}rc 
 
