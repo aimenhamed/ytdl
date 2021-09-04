@@ -2,6 +2,7 @@ import sys
 import subprocess
 from pytube import YouTube
 
+
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -12,6 +13,7 @@ class bcolors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
+
 
 if len(sys.argv) == 1:
     print(f"{bcolors.HEADER}Usage: ytdl <link>")
@@ -51,8 +53,8 @@ for video in videos:
 
 
 if audio == "mp3":
-    print("Successfully downloaded audio.")
+    print(f"{bcolors.OKGREEN}Successfully downloaded audio.")
 elif len(videos) > 1:
-    print("Successfully downloaded videos.")
+    print(f"{bcolors.OKGREEN}Successfully downloaded videos.")
 else:
-    print("Successfully downloaded video.")
+    print(f"{bcolors.OKGREEN}Successfully downloaded video.")
